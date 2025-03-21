@@ -35,7 +35,7 @@ steps:
 
   # ✅ Step 4: Prisma Migration（Cloud SQL Proxyなし）
   - id: "migration"
-    name: "${_IMAGE_NAME}"
+    name: "gcr.io/$PROJECT_ID/next-template:$COMMIT_SHA"
     entrypoint: npx
     args: ["prisma", "migrate", "deploy"]
     env:
