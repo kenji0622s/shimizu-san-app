@@ -27,8 +27,8 @@ steps:
       - "next-template"
       - "--image"
       - "gcr.io/$PROJECT_ID/next-template:$COMMIT_SHA"
-      # - "--region"
-      # - "asia-east1"
+      - "--region"
+      - "asia-northeast1"
       - "--allow-unauthenticated"
       - "--set-env-vars"
       - "NEXTAUTH_SECRET=${_NEXTAUTH_SECRET},DATABASE_URL=${_DATABASE_URL}"
@@ -49,10 +49,9 @@ options:
   logging: CLOUD_LOGGING_ONLY
   dynamic_substitutions: true
   pool:
-    name: "projects/$PROJECT_ID/locations/asia-east1/workerPools/asia-workerpool"
-    # name: "projects/$PROJECT_ID/locations/asia-northeast1/workerPools/shimizu-private-pool"
+    name: "projects/$PROJECT_ID/locations/asia-northeast1/workerPools/shimizu-private-pool"
 
 substitutions:
   _IMAGE_NAME: gcr.io/${PROJECT_ID}/next-template
   _NEXTAUTH_SECRET: your-secret-here
-  _DATABASE_URL: mysql://root:password@10.10.3.3:3306/cdemart
+  _DATABASE_URL: mysql://root:password@10.10.1.3:3306/cdemart
