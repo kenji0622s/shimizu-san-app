@@ -20,7 +20,7 @@ steps:
 
   # ✅ Step 3: Cloud Run Deploy
   - id: "deploy-to-run"
-    name: "gcr.io/cloud-builders/gcloud"
+    name: "gcr.io/cloud-builders/gcloud:455.0.0"
     args:
       - "run"
       - "deploy"
@@ -48,8 +48,8 @@ images:
 options:
   logging: CLOUD_LOGGING_ONLY
   dynamic_substitutions: true
-  # pool:
-  #   name: "projects/$PROJECT_ID/locations/asia-northeast1/workerPools/shimizu-private-pool"
+  pool:
+    name: "projects/$PROJECT_ID/locations/asia-northeast1/workerPools/shimizu-private-pool"
 
 substitutions:
   _IMAGE_NAME: gcr.io/${PROJECT_ID}/next-template
